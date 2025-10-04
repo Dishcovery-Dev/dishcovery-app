@@ -12,6 +12,20 @@ class ThemeProvider with ChangeNotifier {
 
   ThemeMode get themeMode => _themeMode;
 
+  /// Returns true if the app is currently displaying in dark mode
+  /// This considers both the explicit mode setting and system preference
+  bool isDarkMode(BuildContext context) {
+    switch (_themeMode) {
+      case ThemeMode.dark:
+        return true;
+      case ThemeMode.light:
+        return false;
+      case ThemeMode.system:
+        // When in system mode, check the actual platform brightness
+        return MediaQuery.of(context).platformBrightness == Brightness.dark;
+    }
+  }
+
   static ThemeMode _loadThemeMode(SharedPreferences prefs) {
     final String? themeModeString = prefs.getString(_themeKey);
     switch (themeModeString) {

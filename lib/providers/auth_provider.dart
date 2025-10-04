@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 
-import '../core/services/firebase_auth_service.dart';
-import '../core/services/user_service.dart';
+import 'package:dishcovery_app/core/services/firebase_auth_service.dart';
+import 'package:dishcovery_app/core/services/user_service.dart';
 
 /// Provider for managing authentication state and operations
 class AuthProvider extends ChangeNotifier {
@@ -112,9 +112,10 @@ class AuthProvider extends ChangeNotifier {
     debugPrint('🔐 AuthProvider: Starting Google Sign-In process');
     debugPrint('🔐 AuthProvider: Current loading state: $_isLoading');
     debugPrint('🔐 AuthProvider: Current user state: ${_user?.email ?? 'null'}');
-    
+
     return _performAuthOperation(() async {
       debugPrint('🔐 AuthProvider: Calling FirebaseAuthService.signInWithGoogle()');
+      await _authService.signInWithGoogle();
       debugPrint('🔐 AuthProvider: FirebaseAuthService.signInWithGoogle() completed successfully');
       debugPrint('🔐 AuthProvider: New user after sign-in: ${_authService.currentUser?.email ?? 'null'}');
       return true;
