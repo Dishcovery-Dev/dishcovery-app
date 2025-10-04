@@ -53,14 +53,13 @@ dependencies:
     camera: ^0.11.2
     cloud_firestore: ^6.0.2
     geolocator: ^14.0.2
-    google_sign_in: ^7.2.0
-    introduction_screen: ^4.0.0
-    sign_in_button: ^4.0.1
+    google_sign_in: ^6.2.1
+    introduction_screen: ^3.1.14
+    sign_in_button: ^3.2.0
     http: ^1.5.0
     image: ^4.5.4
     flutter_markdown: ^0.7.7+1
     shimmer: ^3.0.0
-    iconify_design: ^1.0.1
 
 dev_dependencies:
     flutter_test:

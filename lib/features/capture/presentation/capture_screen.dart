@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:image_picker/image_picker.dart';
 
-import 'package:dishcovery_app/utils/routes/app_routes.dart';
-import 'package:dishcovery_app/features/result/presentation/result_screen.dart';
+import '../../../utils/routes/app_routes.dart';
+import '../../result/presentation/result_screen.dart';
 
 class CaptureScreen extends StatefulWidget {
   const CaptureScreen({super.key});

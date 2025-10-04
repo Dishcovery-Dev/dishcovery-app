@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:dishcovery_app/core/navigation/navigation_models.dart';
+import '../../../core/navigation/navigation_models.dart';
 
 class SettingLanguageCard extends StatefulWidget {
   const SettingLanguageCard({super.key});

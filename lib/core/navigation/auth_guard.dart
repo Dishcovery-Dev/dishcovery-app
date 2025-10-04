@@ -6,9 +6,9 @@ import 'package:dishcovery_app/features/result/presentation/result_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:dishcovery_app/features/settings/presentation/setting_screen.dart';
-import 'package:dishcovery_app/providers/auth_provider.dart';
-import 'package:dishcovery_app/features/auth/login/presentation/login_screen.dart';
+import '../../features/settings/presentation/setting_screen.dart';
+import '../../providers/auth_provider.dart';
+import '../../features/auth/login/presentation/login_screen.dart';
 
 class AuthGuard extends StatelessWidget {
   final Widget child;

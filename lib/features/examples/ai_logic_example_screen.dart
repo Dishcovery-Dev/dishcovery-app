@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
-import 'package:dishcovery_app/providers/ai_provider.dart';
+import '../../providers/ai_provider.dart';
 
 class AiLogicExampleScreen extends StatefulWidget {
   const AiLogicExampleScreen({super.key});

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:dishcovery_app/features/auth/login/presentation/login_screen.dart';
-import 'package:dishcovery_app/features/preference_onboarding/presentation/preferences_onboarding_screen.dart';
-import 'package:dishcovery_app/providers/auth_provider.dart';
-import 'package:dishcovery_app/providers/user_preferences_provider.dart';
+import '../../features/auth/login/presentation/login_screen.dart';
+import '../../features/preference_onboarding/presentation/preferences_onboarding_screen.dart';
+import '../../providers/auth_provider.dart';
+import '../../providers/user_preferences_provider.dart';
 
 class AuthPreferencesGuard extends StatefulWidget {
   final Widget child;

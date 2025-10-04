@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-import 'package:dishcovery_app/core/services/firebase_ai_service.dart';
+import '../core/services/firebase_ai_service.dart';
 
 class AiProvider extends ChangeNotifier {
   AiProvider({FirebaseAiService? service})

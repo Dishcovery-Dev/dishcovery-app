@@ -1,8 +1,8 @@
 import 'package:camera/camera.dart' as camera;
 import 'package:flutter/material.dart';
 
-import 'package:dishcovery_app/core/controllers/camera_controller.dart';
-import 'package:dishcovery_app/core/models/camera_model.dart';
+import '../core/controllers/camera_controller.dart';
+import '../core/models/camera_model.dart';
 
 class CameraProvider extends ChangeNotifier {
   late final CameraViewController _controller;

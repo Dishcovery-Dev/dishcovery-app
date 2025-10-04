@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
-import 'package:dishcovery_app/core/navigation/navigation_models.dart';
+import 'navigation_models.dart';
 
 class NavigationService extends NavigationServiceBase {
   static final NavigationService _instance = NavigationService._internal();

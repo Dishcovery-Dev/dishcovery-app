@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-import 'package:dishcovery_app/core/models/camera_model.dart';
+import '../models/camera_model.dart';
 
 class CameraViewController extends ChangeNotifier {
   CameraController? _cameraController;

@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 
-import 'package:dishcovery_app/core/services/firebase_auth_service.dart';
-import 'package:dishcovery_app/core/services/user_service.dart';
+import '../core/services/firebase_auth_service.dart';
+import '../core/services/user_service.dart';
 
 /// Provider for managing authentication state and operations
 class AuthProvider extends ChangeNotifier {

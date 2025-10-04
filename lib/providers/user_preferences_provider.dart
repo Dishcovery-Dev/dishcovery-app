@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
-import 'package:dishcovery_app/core/models/user_preferences.dart';
-import 'package:dishcovery_app/core/services/user_preferences_service.dart';
-import 'package:dishcovery_app/providers/auth_provider.dart';
+import '../core/models/user_preferences.dart';
+import '../core/services/user_preferences_service.dart';
+import '../providers/auth_provider.dart';
 
 class UserPreferencesProvider extends ChangeNotifier {
   final UserPreferencesService _service;

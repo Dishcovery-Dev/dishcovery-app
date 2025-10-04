@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:dishcovery_app/utils/routes/app_routes.dart';
+import '../../../utils/routes/app_routes.dart';
 
 class AppOnboardingScreen extends StatefulWidget {
   const AppOnboardingScreen({super.key});

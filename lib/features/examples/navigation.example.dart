@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:dishcovery_app/core/navigation/navigation_models.dart';
-import 'package:dishcovery_app/core/widgets/custom_app_bar.dart';
-import 'package:dishcovery_app/core/widgets/custom_button.dart';
-import 'package:dishcovery_app/core/widgets/theme_switcher.dart';
+import '../../../../core/navigation/navigation_models.dart';
+import '../../../../core/widgets/custom_app_bar.dart';
+import '../../../../core/widgets/custom_button.dart';
+import '../../../../core/widgets/theme_switcher.dart';
 
 class SettingScreen extends StatelessWidget {
   const SettingScreen({super.key});

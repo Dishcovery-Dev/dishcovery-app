@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dishcovery_app/core/models/user_preferences.dart';
+import '../models/user_preferences.dart';
 
 class UserPreferencesService {
   final FirebaseFirestore _db;

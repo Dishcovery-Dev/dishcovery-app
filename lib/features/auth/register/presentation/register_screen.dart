@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sign_in_button/sign_in_button.dart';
 
-import 'package:dishcovery_app/core/widgets/app_logo.dart';
-import 'package:dishcovery_app/providers/auth_provider.dart';
-import 'package:dishcovery_app/utils/routes/app_routes.dart';
+import '../../../../core/widgets/app_logo.dart';
+import '../../../../providers/auth_provider.dart';
+import '../../../../utils/routes/app_routes.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});

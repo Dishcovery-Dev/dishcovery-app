@@ -2,12 +2,12 @@ import 'package:dishcovery_app/providers/scan_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:dishcovery_app/features/result/presentation/widgets/related_foods_widget.dart';
-import 'package:dishcovery_app/features/result/presentation/widgets/result_actions_widget.dart';
-import 'package:dishcovery_app/features/result/presentation/widgets/result_image_widget.dart';
-import 'package:dishcovery_app/features/result/presentation/widgets/result_info_widget.dart';
-import 'package:dishcovery_app/features/result/presentation/widgets/result_skeleton_loader.dart';
-import 'package:dishcovery_app/features/result/presentation/widgets/result_tags_widget.dart';
+import 'widgets/related_foods_widget.dart';
+import 'widgets/result_actions_widget.dart';
+import 'widgets/result_image_widget.dart';
+import 'widgets/result_info_widget.dart';
+import 'widgets/result_skeleton_loader.dart';
+import 'widgets/result_tags_widget.dart';
 
 class ResultScreen extends StatefulWidget {
   final String imagePath;

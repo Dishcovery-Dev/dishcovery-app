@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:dishcovery_app/providers/theme_provider.dart';
+import '../../providers/theme_provider.dart';
 
 class ThemeSwitcher extends StatelessWidget {
   final double iconSize;

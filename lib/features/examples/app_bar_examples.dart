@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:dishcovery_app/core/widgets/custom_app_bar.dart';
+import '../../core/widgets/custom_app_bar.dart';
 
 class AppBarExamples extends StatelessWidget {
   const AppBarExamples({super.key});

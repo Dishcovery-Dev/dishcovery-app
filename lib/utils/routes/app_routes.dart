@@ -1,21 +1,21 @@
 import 'package:dishcovery_app/features/result/presentation/result_screen.dart';
 import 'package:flutter/material.dart';
 
-import 'package:dishcovery_app/core/navigation/auth_guard.dart';
-import 'package:dishcovery_app/core/navigation/auth_preferences_guard.dart';
-import 'package:dishcovery_app/core/navigation/main_navigation.dart';
-import 'package:dishcovery_app/features/auth/forgot_password/presentation/forgot_password_screen.dart';
-import 'package:dishcovery_app/features/auth/login/presentation/login_screen.dart';
-import 'package:dishcovery_app/features/auth/register/presentation/register_screen.dart';
-import 'package:dishcovery_app/features/capture/presentation/capture_screen.dart';
-import 'package:dishcovery_app/features/examples/ai_logic_example_screen.dart';
-import 'package:dishcovery_app/features/history/presentation/history_screen.dart';
-import 'package:dishcovery_app/features/home/presentation/dishcovery_home_page.dart';
-import 'package:dishcovery_app/features/onboarding/presentation/app_onboarding_screen.dart';
-import 'package:dishcovery_app/features/preference_onboarding/presentation/preferences_onboarding_screen.dart';
-import 'package:dishcovery_app/features/settings/presentation/edit_profile_screen.dart';
-import 'package:dishcovery_app/features/settings/presentation/setting_screen.dart';
-import 'package:dishcovery_app/features/user_preference/presentation/user_preferences_screen.dart';
+import '../../core/navigation/auth_guard.dart';
+import '../../core/navigation/auth_preferences_guard.dart';
+import '../../core/navigation/main_navigation.dart';
+import '../../features/auth/forgot_password/presentation/forgot_password_screen.dart';
+import '../../features/auth/login/presentation/login_screen.dart';
+import '../../features/auth/register/presentation/register_screen.dart';
+import '../../features/capture/presentation/capture_screen.dart';
+import '../../features/examples/ai_logic_example_screen.dart';
+import '../../features/history/presentation/history_screen.dart';
+import '../../features/home/presentation/dishcovery_home_page.dart';
+import '../../features/onboarding/presentation/app_onboarding_screen.dart';
+import '../../features/preference_onboarding/presentation/preferences_onboarding_screen.dart';
+import '../../features/settings/presentation/edit_profile_screen.dart';
+import '../../features/settings/presentation/setting_screen.dart';
+import '../../features/user_preference/presentation/user_preferences_screen.dart';
 
 /// App routing configuration following Flutter best practices
 ///

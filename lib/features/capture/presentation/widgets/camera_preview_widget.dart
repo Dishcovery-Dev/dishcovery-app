@@ -1,7 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
-import 'package:dishcovery_app/providers/camera_provider.dart';
+import '../../../../providers/camera_provider.dart';
 
 class CameraPreviewWidget extends StatelessWidget {
   final CameraProvider provider;

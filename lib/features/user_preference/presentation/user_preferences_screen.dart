@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:dishcovery_app/core/models/user_preferences.dart';
-import 'package:dishcovery_app/providers/user_preferences_provider.dart';
+import '../../../core/models/user_preferences.dart';
+import '../../../providers/user_preferences_provider.dart';
 
 class UserPreferencesScreen extends StatefulWidget {
   const UserPreferencesScreen({super.key});

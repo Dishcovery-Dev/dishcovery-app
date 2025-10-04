@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:dishcovery_app/providers/auth_provider.dart';
+import '../../../providers/auth_provider.dart';
 
 class SettingsProfileHeader extends StatelessWidget {
   const SettingsProfileHeader({super.key});

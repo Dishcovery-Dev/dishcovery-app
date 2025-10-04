@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:dishcovery_app/core/navigation/navigation_service.dart';
+import 'navigation_service.dart';
 
 enum NavigationTab {
   home,

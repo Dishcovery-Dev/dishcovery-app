@@ -1,7 +1,6 @@
 import 'package:dishcovery_app/core/models/feed_model.dart';
 import 'package:dishcovery_app/features/home/presentation/widgets/feed_card.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class DishcoveryHomePage extends StatefulWidget {
   const DishcoveryHomePage({super.key});
@@ -112,47 +111,51 @@ class _DishcoveryHomePageState extends State<DishcoveryHomePage> {
 
     return Scaffold(
       backgroundColor: colorScheme.surface,
+      appBar: AppBar(
+        backgroundColor: colorScheme.surface,
+        elevation: 0,
+        title: Text(
+          'Dishcovery',
+          style: theme.textTheme.headlineSmall?.copyWith(
+            fontWeight: FontWeight.bold,
+            letterSpacing: -0.5,
+          ),
+        ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.favorite_border),
+            onPressed: () {
+              // TODO: Navigate to likes/activity page
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.chat_bubble_outline),
+            onPressed: () {
+              // TODO: Navigate to messages
+            },
+          ),
+        ],
+      ),
       body: RefreshIndicator(
         onRefresh: () async {
           await Future.delayed(const Duration(seconds: 1));
           _loadFeedData();
         },
-        child: CustomScrollView(
+        child: ListView.builder(
           controller: _scrollController,
           physics: const AlwaysScrollableScrollPhysics(),
-          slivers: [
-            SliverAppBar(
-              backgroundColor: colorScheme.surface,
-              elevation: 0,
-              floating: true,
-              pinned: false,
-              snap: true,
-              title: Text(
-                'Dishcovery',
-                style: GoogleFonts.niconne(
-                  fontSize: 32,
-                  color: colorScheme.onSurface,
-                  letterSpacing: 0.5,
-                ),
-              ),
-              ),
-            SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (context, index) {
-                  final item = _feedItems[index];
-                  return FeedCard(
-                    feedItem: item,
-                    onLike: () => _handleLike(item),
-                    onComment: () => _handleComment(item),
-                    onShare: () => _handleShare(item),
-                    onSave: () => _handleSave(item),
-                    onMoreOptions: () => _handleMoreOptions(item),
-                  );
-                },
-                childCount: _feedItems.length,
-              ),
-            ),
-          ],
+          itemCount: _feedItems.length,
+          itemBuilder: (context, index) {
+            final item = _feedItems[index];
+            return FeedCard(
+              feedItem: item,
+              onLike: () => _handleLike(item),
+              onComment: () => _handleComment(item),
+              onShare: () => _handleShare(item),
+              onSave: () => _handleSave(item),
+              onMoreOptions: () => _handleMoreOptions(item),
+            );
+          },
         ),
       ),
     );

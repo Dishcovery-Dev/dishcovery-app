@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:provider/provider.dart';
 
-import 'package:dishcovery_app/core/models/user_preferences.dart';
-import 'package:dishcovery_app/providers/user_preferences_provider.dart';
-import 'package:dishcovery_app/utils/routes/app_routes.dart';
+import '../../../core/models/user_preferences.dart';
+import '../../../providers/user_preferences_provider.dart';
+import '../../../utils/routes/app_routes.dart';
 
 class PreferencesOnboardingScreen extends StatefulWidget {
   const PreferencesOnboardingScreen({super.key});
