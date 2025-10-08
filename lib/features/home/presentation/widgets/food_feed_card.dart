@@ -61,7 +61,8 @@ class _FoodFeedCardState extends State<FoodFeedCard>
         ? '${widget.feed.description.substring(0, 100)}...'
         : widget.feed.description;
 
-    final shareText = '''
+    final shareText =
+        '''
 🍽️ ${widget.feed.name}
 📍 ${widget.feed.origin}
 
@@ -78,10 +79,9 @@ https://bit.ly/dishcover-this
         // For local images
         final file = File(widget.feed.imageUrl);
         if (file.existsSync()) {
-          await Share.shareXFiles(
-            [XFile(widget.feed.imageUrl)],
-            text: shareText,
-          );
+          await Share.shareXFiles([
+            XFile(widget.feed.imageUrl),
+          ], text: shareText);
         } else {
           await Share.share(shareText);
         }
@@ -122,10 +122,7 @@ https://bit.ly/dishcover-this
                   borderRadius: const BorderRadius.vertical(
                     top: Radius.circular(20),
                   ),
-                  child: AspectRatio(
-                    aspectRatio: 16 / 9,
-                    child: _buildImage(),
-                  ),
+                  child: AspectRatio(aspectRatio: 16 / 9, child: _buildImage()),
                 ),
                 // Gradient overlay
                 Positioned.fill(
@@ -456,11 +453,7 @@ class _ActionButton extends StatelessWidget {
 
     Widget child = Row(
       children: [
-        Icon(
-          icon,
-          size: 20,
-          color: color ?? colorScheme.onSurfaceVariant,
-        ),
+        Icon(icon, size: 20, color: color ?? colorScheme.onSurfaceVariant),
         const SizedBox(width: 6),
         Text(
           label,
@@ -477,10 +470,7 @@ class _ActionButton extends StatelessWidget {
       child = AnimatedBuilder(
         animation: animation!,
         builder: (context, child) {
-          return Transform.scale(
-            scale: animation!.value,
-            child: child,
-          );
+          return Transform.scale(scale: animation!.value, child: child);
         },
         child: child,
       );

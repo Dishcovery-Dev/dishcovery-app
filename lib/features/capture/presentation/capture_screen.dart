@@ -210,17 +210,14 @@ class _CaptureScreenState extends State<CaptureScreen>
                 _buildCameraPreview(cameraProvider),
 
               // Gamification Overlay (frame guide)
-              if (cameraProvider.isInitialized)
-                _buildGamificationOverlay(),
+              if (cameraProvider.isInitialized) _buildGamificationOverlay(),
 
               // Loading State
               if (cameraProvider.isLoading && !cameraProvider.isInitialized)
                 const Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      CircularProgressIndicator(color: Colors.white)
-                    ],
+                    children: [CircularProgressIndicator(color: Colors.white)],
                   ),
                 ),
 
@@ -370,9 +367,7 @@ class _CaptureScreenState extends State<CaptureScreen>
 
                       // Capture Button (Main)
                       GestureDetector(
-                        onTap: cameraProvider.isLoading
-                            ? null
-                            : _takePicture,
+                        onTap: cameraProvider.isLoading ? null : _takePicture,
                         child: Container(
                           width: 80,
                           height: 80,
@@ -381,11 +376,13 @@ class _CaptureScreenState extends State<CaptureScreen>
                             shape: BoxShape.circle,
                             border: Border.all(
                               color: theme.primaryColor,
-                              width: 5
+                              width: 5,
                             ),
                             boxShadow: [
                               BoxShadow(
-                                color: theme.primaryColor.withValues(alpha: 0.4),
+                                color: theme.primaryColor.withValues(
+                                  alpha: 0.4,
+                                ),
                                 blurRadius: 20,
                                 spreadRadius: 2,
                               ),

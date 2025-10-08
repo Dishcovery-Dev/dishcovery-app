@@ -103,7 +103,8 @@ class FeedsProvider extends ChangeNotifier {
 
   /// Process feed documents and add user interaction data
   Future<List<FeedData>> _processFeedDocuments(
-      List<QueryDocumentSnapshot> docs) async {
+    List<QueryDocumentSnapshot> docs,
+  ) async {
     final feeds = <FeedData>[];
     final userId = currentUser?.uid;
 
@@ -124,13 +125,15 @@ class FeedsProvider extends ChangeNotifier {
         isSaved = await _checkUserSaved(doc.id, userId);
       }
 
-      feeds.add(FeedData.fromFirestore(
-        data,
-        likesCount: likesCount,
-        commentsCount: commentsCount,
-        isLiked: isLiked,
-        isSaved: isSaved,
-      ));
+      feeds.add(
+        FeedData.fromFirestore(
+          data,
+          likesCount: likesCount,
+          commentsCount: commentsCount,
+          isLiked: isLiked,
+          isSaved: isSaved,
+        ),
+      );
     }
 
     return feeds;
@@ -221,12 +224,12 @@ class FeedsProvider extends ChangeNotifier {
           .doc(feedId)
           .collection(_commentsCollection)
           .add({
-        'userId': userId,
-        'userName': currentUser?.displayName ?? 'User',
-        'userAvatar': currentUser?.photoURL ?? '',
-        'comment': comment.trim(),
-        'timestamp': FieldValue.serverTimestamp(),
-      });
+            'userId': userId,
+            'userName': currentUser?.displayName ?? 'User',
+            'userAvatar': currentUser?.photoURL ?? '',
+            'comment': comment.trim(),
+            'timestamp': FieldValue.serverTimestamp(),
+          });
 
       // Update comment count locally
       final feedIndex = _feeds.indexWhere((f) => f.id == feedId);

@@ -43,11 +43,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
-                        Icons.history,
-                        size: 80,
-                        color: Colors.grey,
-                      ),
+                      Icon(Icons.history, size: 80, color: Colors.grey),
                       SizedBox(height: 16),
                       Text(
                         'Belum ada riwayat',
@@ -59,10 +55,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                       SizedBox(height: 8),
                       Text(
                         'Mulai scan makanan untuk melihat riwayat',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.grey,
-                        ),
+                        style: TextStyle(fontSize: 14, color: Colors.grey),
                       ),
                     ],
                   ),
@@ -98,13 +91,16 @@ class _HistoryScreenState extends State<HistoryScreen> {
                           fit: StackFit.expand,
                           children: [
                             // Background image
-                            if (item.imagePath.isNotEmpty && File(item.imagePath).existsSync())
+                            if (item.imagePath.isNotEmpty &&
+                                File(item.imagePath).existsSync())
                               Image.file(
                                 File(item.imagePath),
                                 fit: BoxFit.cover,
                                 errorBuilder: (context, error, stackTrace) {
                                   return Container(
-                                    color: Theme.of(context).colorScheme.surfaceContainerHighest,
+                                    color: Theme.of(
+                                      context,
+                                    ).colorScheme.surfaceContainerHighest,
                                     child: const Center(
                                       child: Icon(
                                         Icons.broken_image_outlined,
@@ -117,7 +113,9 @@ class _HistoryScreenState extends State<HistoryScreen> {
                               )
                             else
                               Container(
-                                color: Theme.of(context).colorScheme.surfaceContainerHighest,
+                                color: Theme.of(
+                                  context,
+                                ).colorScheme.surfaceContainerHighest,
                                 child: const Center(
                                   child: Icon(
                                     Icons.restaurant,
@@ -154,18 +152,24 @@ class _HistoryScreenState extends State<HistoryScreen> {
                                   bottomRight: Radius.circular(16),
                                 ),
                                 child: BackdropFilter(
-                                  filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
+                                  filter: ImageFilter.blur(
+                                    sigmaX: 8,
+                                    sigmaY: 8,
+                                  ),
                                   child: Container(
                                     padding: const EdgeInsets.all(16),
                                     decoration: const BoxDecoration(
                                       color: Colors.black26,
                                     ),
                                     child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
                                         Text(
-                                          item.name.isNotEmpty ? item.name : 'Makanan Tidak Dikenal',
+                                          item.name.isNotEmpty
+                                              ? item.name
+                                              : 'Makanan Tidak Dikenal',
                                           style: const TextStyle(
                                             color: Colors.white,
                                             fontSize: 20,
@@ -184,7 +188,9 @@ class _HistoryScreenState extends State<HistoryScreen> {
                                             ),
                                             const SizedBox(width: 4),
                                             Text(
-                                              item.origin.isNotEmpty ? item.origin : 'Tidak diketahui',
+                                              item.origin.isNotEmpty
+                                                  ? item.origin
+                                                  : 'Tidak diketahui',
                                               style: const TextStyle(
                                                 color: Colors.white70,
                                                 fontSize: 12,
@@ -198,7 +204,9 @@ class _HistoryScreenState extends State<HistoryScreen> {
                                             ),
                                             const SizedBox(width: 4),
                                             Text(
-                                              dateFormatter.format(item.createdAt),
+                                              dateFormatter.format(
+                                                item.createdAt,
+                                              ),
                                               style: const TextStyle(
                                                 color: Colors.white70,
                                                 fontSize: 12,
@@ -232,16 +240,21 @@ class _HistoryScreenState extends State<HistoryScreen> {
                                         ),
                                         actions: [
                                           TextButton(
-                                            onPressed: () => Navigator.pop(context),
+                                            onPressed: () =>
+                                                Navigator.pop(context),
                                             child: const Text('Batal'),
                                           ),
                                           TextButton(
                                             onPressed: () async {
-                                              await provider.deleteHistory(item.id!);
+                                              await provider.deleteHistory(
+                                                item.id!,
+                                              );
                                               if (!mounted) return;
                                               Navigator.pop(context);
                                               if (!mounted) return;
-                                              ScaffoldMessenger.of(context).showSnackBar(
+                                              ScaffoldMessenger.of(
+                                                context,
+                                              ).showSnackBar(
                                                 const SnackBar(
                                                   content: Text('Item dihapus'),
                                                 ),
@@ -249,7 +262,9 @@ class _HistoryScreenState extends State<HistoryScreen> {
                                             },
                                             child: const Text(
                                               'Hapus',
-                                              style: TextStyle(color: Colors.red),
+                                              style: TextStyle(
+                                                color: Colors.red,
+                                              ),
                                             ),
                                           ),
                                         ],

@@ -24,7 +24,9 @@ class FirestoreService {
       String? imageUrl = scanResult.imageUrl;
       if (scanResult.imagePath.isNotEmpty &&
           !scanResult.imagePath.startsWith('http')) {
-        final uploadedUrl = await _storageService.uploadImage(scanResult.imagePath);
+        final uploadedUrl = await _storageService.uploadImage(
+          scanResult.imagePath,
+        );
         if (uploadedUrl != null) {
           imageUrl = uploadedUrl;
         }
@@ -72,12 +74,12 @@ class FirestoreService {
         .orderBy('createdAt', descending: true)
         .snapshots()
         .map((snapshot) {
-      return snapshot.docs.map((doc) {
-        final data = doc.data();
-        data['firestoreId'] = doc.id;
-        return ScanResult.fromJson(data);
-      }).toList();
-    });
+          return snapshot.docs.map((doc) {
+            final data = doc.data();
+            data['firestoreId'] = doc.id;
+            return ScanResult.fromJson(data);
+          }).toList();
+        });
   }
 
   /// Get public feeds (all public scans)
@@ -90,12 +92,12 @@ class FirestoreService {
         .limit(limit)
         .snapshots()
         .map((snapshot) {
-      return snapshot.docs.map((doc) {
-        final data = doc.data();
-        data['firestoreId'] = doc.id;
-        return ScanResult.fromJson(data);
-      }).toList();
-    });
+          return snapshot.docs.map((doc) {
+            final data = doc.data();
+            data['firestoreId'] = doc.id;
+            return ScanResult.fromJson(data);
+          }).toList();
+        });
   }
 
   /// Search feeds by name
@@ -113,10 +115,13 @@ class FirestoreService {
             data['firestoreId'] = doc.id;
             return ScanResult.fromJson(data);
           })
-          .where((scan) =>
-              scan.name.toLowerCase().contains(query.toLowerCase()) ||
-              scan.tags.any((tag) =>
-                  tag.toLowerCase().contains(query.toLowerCase())))
+          .where(
+            (scan) =>
+                scan.name.toLowerCase().contains(query.toLowerCase()) ||
+                scan.tags.any(
+                  (tag) => tag.toLowerCase().contains(query.toLowerCase()),
+                ),
+          )
           .toList();
     } catch (e) {
       print('Error searching feeds: $e');
@@ -128,7 +133,10 @@ class FirestoreService {
   Future<bool> deleteScanResult(String docId) async {
     try {
       // Get the scan to retrieve the image URL
-      final doc = await _firestore.collection(_scansCollection).doc(docId).get();
+      final doc = await _firestore
+          .collection(_scansCollection)
+          .doc(docId)
+          .get();
       if (doc.exists) {
         final data = doc.data()!;
         final imageUrl = data['imageUrl'] as String?;
@@ -151,7 +159,10 @@ class FirestoreService {
   /// Get single scan by ID
   Future<ScanResult?> getScanById(String docId) async {
     try {
-      final doc = await _firestore.collection(_scansCollection).doc(docId).get();
+      final doc = await _firestore
+          .collection(_scansCollection)
+          .doc(docId)
+          .get();
       if (doc.exists) {
         final data = doc.data()!;
         data['firestoreId'] = doc.id;

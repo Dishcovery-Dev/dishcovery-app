@@ -76,13 +76,13 @@ class ScanResult {
       isFavorite: json['isFavorite'] ?? false,
       createdAt: json['createdAt'] != null
           ? (json['createdAt'] is String
-              ? DateTime.parse(json['createdAt'])
-              : (json['createdAt'] as dynamic).toDate())
+                ? DateTime.parse(json['createdAt'])
+                : (json['createdAt'] as dynamic).toDate())
           : DateTime.now(),
       updatedAt: json['updatedAt'] != null
           ? (json['updatedAt'] is String
-              ? DateTime.parse(json['updatedAt'])
-              : (json['updatedAt'] as dynamic).toDate())
+                ? DateTime.parse(json['updatedAt'])
+                : (json['updatedAt'] as dynamic).toDate())
           : null,
     );
   }

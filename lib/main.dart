@@ -18,8 +18,5 @@ void main() async {
   // Initialize ObjectBox
   final objectbox = await ObjectBoxDatabase.create();
 
-  runApp(App(
-    preferences: preferences,
-    objectBoxDatabase: objectbox,
-  ));
+  runApp(App(preferences: preferences, objectBoxDatabase: objectbox));
 }

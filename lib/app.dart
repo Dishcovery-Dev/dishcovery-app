@@ -44,7 +44,9 @@ class App extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => AuthProvider()),
         ChangeNotifierProvider(create: (_) => ScanProvider()),
         ChangeNotifierProvider(create: (_) => CameraProvider()),
-        ChangeNotifierProvider(create: (_) => HistoryProvider(objectBoxDatabase)),
+        ChangeNotifierProvider(
+          create: (_) => HistoryProvider(objectBoxDatabase),
+        ),
         ChangeNotifierProvider(create: (_) => FeedsProvider()),
         ChangeNotifierProxyProvider<AuthProvider, UserPreferencesProvider>(
           create: (context) => UserPreferencesProvider(

@@ -67,12 +67,36 @@ dependencies:
   path: ^1.9.1
   url_launcher: ^6.3.2
   share_plus: ^12.0.0
+  change_app_package_name: ^1.5.0
+  
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner: ^2.4.13
   objectbox_generator: ^4.0.3
+  flutter_launcher_icons: ^0.14.4
+  flutter_native_splash: ^2.4.6
+
+flutter_native_splash:
+  android: true
+  ios: true
+
+  color: "#F44336"
+  image: "assets/icon/logo.png"
+  branding: "assets/icon/branding.png"
+
+  android_12:
+    color: "#F44336"
+    image: "assets/icon/logo.png"
+    branding: "assets/icon/branding.png"
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/dishcovery_icon.png"
+  adaptive_icon_foreground: "assets/icon/foreground.png"
+  adaptive_icon_background: "assets/icon/background.png"
 
 flutter:
   assets:

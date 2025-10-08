@@ -93,7 +93,9 @@ class ObjectBoxDatabase {
   /// Search scan results by name
   Future<List<ScanResult>> searchByName(String searchTerm) async {
     final query = _scanResultBox
-        .query(ScanResultEntity_.name.contains(searchTerm, caseSensitive: false))
+        .query(
+          ScanResultEntity_.name.contains(searchTerm, caseSensitive: false),
+        )
         .order(ScanResultEntity_.createdAt, flags: Order.descending)
         .build();
     final entities = query.find();

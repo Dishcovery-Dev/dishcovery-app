@@ -12,7 +12,7 @@ class ResultScreen extends StatefulWidget {
   final ScanResult? initialData;
 
   const ResultScreen({super.key, this.imagePath, this.initialData})
-      : assert(imagePath != null || initialData != null);
+    : assert(imagePath != null || initialData != null);
 
   static const String path = '/result';
 
@@ -87,7 +87,9 @@ class _ResultScreenState extends State<ResultScreen> {
     final displayImagePath = widget.initialData?.imagePath ?? widget.imagePath!;
 
     // Check if result is saved (either local id or firestoreId)
-    if (result != null && (result.id != null || result.firestoreId != null) && !_isSaved) {
+    if (result != null &&
+        (result.id != null || result.firestoreId != null) &&
+        !_isSaved) {
       _isSaved = true;
     }
 
@@ -109,12 +111,11 @@ class _ResultScreenState extends State<ResultScreen> {
                 AspectRatio(
                   aspectRatio: 4 / 3,
                   child: File(displayImagePath).existsSync()
-                      ? Image.file(
-                          File(displayImagePath),
-                          fit: BoxFit.cover,
-                        )
+                      ? Image.file(File(displayImagePath), fit: BoxFit.cover)
                       : Container(
-                          color: Theme.of(context).colorScheme.surfaceContainerHighest,
+                          color: Theme.of(
+                            context,
+                          ).colorScheme.surfaceContainerHighest,
                           child: const Center(
                             child: Icon(
                               Icons.broken_image_outlined,
@@ -144,14 +145,18 @@ class _ResultScreenState extends State<ResultScreen> {
                               Icon(
                                 Icons.error_outline,
                                 size: 24,
-                                color: Theme.of(context).colorScheme.onErrorContainer,
+                                color: Theme.of(
+                                  context,
+                                ).colorScheme.onErrorContainer,
                               ),
                               const SizedBox(width: 12),
                               Expanded(
                                 child: Text(
                                   "Error: ${scanProvider.error}",
                                   style: TextStyle(
-                                    color: Theme.of(context).colorScheme.onErrorContainer,
+                                    color: Theme.of(
+                                      context,
+                                    ).colorScheme.onErrorContainer,
                                   ),
                                 ),
                               ),
@@ -170,9 +175,10 @@ class _ResultScreenState extends State<ResultScreen> {
                             children: [
                               Text(
                                 result?.name ?? "Nama Makanan Loading",
-                                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headlineMedium
+                                    ?.copyWith(fontWeight: FontWeight.bold),
                               ),
                               const SizedBox(height: 8),
                               Row(
@@ -180,13 +186,17 @@ class _ResultScreenState extends State<ResultScreen> {
                                   Icon(
                                     Icons.location_on_outlined,
                                     size: 16,
-                                    color: Theme.of(context).colorScheme.primary,
+                                    color: Theme.of(
+                                      context,
+                                    ).colorScheme.primary,
                                   ),
                                   const SizedBox(width: 4),
                                   Text(
                                     result?.origin ?? "Asal Daerah Loading",
                                     style: TextStyle(
-                                      color: Theme.of(context).colorScheme.primary,
+                                      color: Theme.of(
+                                        context,
+                                      ).colorScheme.primary,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
@@ -198,106 +208,114 @@ class _ResultScreenState extends State<ResultScreen> {
                               Row(
                                 children: [
                                   _buildActionButton(
-                                context,
-                                icon: Icons.bookmark_outline,
-                                isEnabled: _isSaved,
-                                isActive: false,
-                                onTap: _saveToCollection,
-                              ),
-                              const SizedBox(width: 8),
-                              _buildActionButton(
-                                context,
-                                icon: Icons.translate,
-                                isEnabled: _isSaved,
-                                isActive: _translated,
-                                onTap: _toggleTranslate,
-                              ),
-                              const SizedBox(width: 8),
-                              _buildActionButton(
-                                context,
-                                icon: Icons.share_outlined,
-                                isEnabled: _isSaved,
-                                isActive: false,
-                                onTap: _shareResult,
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 24),
-
-                          _buildSection(
-                            context,
-                            icon: Icons.description_outlined,
-                            title: 'Deskripsi',
-                            content: result?.description ??
-                                "Ini adalah deskripsi makanan yang sedang dimuat. " * 5,
-                          ),
-
-                          if (result?.history != null && result!.history.isNotEmpty) ...[
-                            const SizedBox(height: 20),
-                            _buildSection(
-                              context,
-                              icon: Icons.history,
-                              title: 'Sejarah',
-                              content: result.history,
-                            ),
-                          ],
-
-                          if (result?.recipe != null) ...[
-                            if (result!.recipe.ingredients.isNotEmpty) ...[
-                              const SizedBox(height: 20),
-                              _buildListSection(
-                                context,
-                                icon: Icons.kitchen_outlined,
-                                title: 'Bahan-bahan',
-                                items: result.recipe.ingredients,
-                              ),
-                            ],
-                            if (result.recipe.steps.isNotEmpty) ...[
-                              const SizedBox(height: 20),
-                              _buildListSection(
-                                context,
-                                icon: Icons.restaurant_menu_outlined,
-                                title: 'Langkah-Langkah',
-                                items: result.recipe.steps,
-                                isNumbered: true,
-                              ),
-                            ],
-                          ],
-
-                          if (result?.tags != null && result!.tags.isNotEmpty) ...[
-                            const SizedBox(height: 20),
-                            Wrap(
-                              spacing: 8,
-                              runSpacing: 8,
-                              children: result.tags.map((tag) {
-                                return Container(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 12,
-                                    vertical: 6,
+                                    context,
+                                    icon: Icons.bookmark_outline,
+                                    isEnabled: _isSaved,
+                                    isActive: false,
+                                    onTap: _saveToCollection,
                                   ),
-                                  decoration: BoxDecoration(
-                                    color: Theme.of(context).colorScheme.primaryContainer,
-                                    borderRadius: BorderRadius.circular(20),
+                                  const SizedBox(width: 8),
+                                  _buildActionButton(
+                                    context,
+                                    icon: Icons.translate,
+                                    isEnabled: _isSaved,
+                                    isActive: _translated,
+                                    onTap: _toggleTranslate,
                                   ),
-                                  child: Text(
-                                    '#$tag',
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      color: Theme.of(context).colorScheme.onPrimaryContainer,
-                                    ),
+                                  const SizedBox(width: 8),
+                                  _buildActionButton(
+                                    context,
+                                    icon: Icons.share_outlined,
+                                    isEnabled: _isSaved,
+                                    isActive: false,
+                                    onTap: _shareResult,
                                   ),
-                                );
-                              }).toList(),
-                            ),
-                          ],
+                                ],
+                              ),
+                              const SizedBox(height: 24),
 
-                          if (result != null && result.isFood) ...[
-                            const SizedBox(height: 24),
-                            NearbyRestaurantsSection(
-                              foodName: result.name,
-                              autoLoad: true,
-                            ),
-                          ],
+                              _buildSection(
+                                context,
+                                icon: Icons.description_outlined,
+                                title: 'Deskripsi',
+                                content:
+                                    result?.description ??
+                                    "Ini adalah deskripsi makanan yang sedang dimuat. " *
+                                        5,
+                              ),
+
+                              if (result?.history != null &&
+                                  result!.history.isNotEmpty) ...[
+                                const SizedBox(height: 20),
+                                _buildSection(
+                                  context,
+                                  icon: Icons.history,
+                                  title: 'Sejarah',
+                                  content: result.history,
+                                ),
+                              ],
+
+                              if (result?.recipe != null) ...[
+                                if (result!.recipe.ingredients.isNotEmpty) ...[
+                                  const SizedBox(height: 20),
+                                  _buildListSection(
+                                    context,
+                                    icon: Icons.kitchen_outlined,
+                                    title: 'Bahan-bahan',
+                                    items: result.recipe.ingredients,
+                                  ),
+                                ],
+                                if (result.recipe.steps.isNotEmpty) ...[
+                                  const SizedBox(height: 20),
+                                  _buildListSection(
+                                    context,
+                                    icon: Icons.restaurant_menu_outlined,
+                                    title: 'Langkah-Langkah',
+                                    items: result.recipe.steps,
+                                    isNumbered: true,
+                                  ),
+                                ],
+                              ],
+
+                              if (result?.tags != null &&
+                                  result!.tags.isNotEmpty) ...[
+                                const SizedBox(height: 20),
+                                Wrap(
+                                  spacing: 8,
+                                  runSpacing: 8,
+                                  children: result.tags.map((tag) {
+                                    return Container(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 12,
+                                        vertical: 6,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: Theme.of(
+                                          context,
+                                        ).colorScheme.primaryContainer,
+                                        borderRadius: BorderRadius.circular(20),
+                                      ),
+                                      child: Text(
+                                        '#$tag',
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          color: Theme.of(
+                                            context,
+                                          ).colorScheme.onPrimaryContainer,
+                                        ),
+                                      ),
+                                    );
+                                  }).toList(),
+                                ),
+                              ],
+
+                              if (result != null && result.isFood) ...[
+                                const SizedBox(height: 24),
+                                NearbyRestaurantsSection(
+                                  foodName: result.name,
+                                  autoLoad: true,
+                                ),
+                              ],
 
                               const SizedBox(height: 32),
                             ],
@@ -325,8 +343,8 @@ class _ResultScreenState extends State<ResultScreen> {
       decoration: BoxDecoration(
         color: isEnabled
             ? (isActive
-                ? Theme.of(context).colorScheme.primaryContainer
-                : Theme.of(context).colorScheme.surfaceContainerHighest)
+                  ? Theme.of(context).colorScheme.primaryContainer
+                  : Theme.of(context).colorScheme.surfaceContainerHighest)
             : Theme.of(context).colorScheme.surfaceContainerHighest,
         borderRadius: BorderRadius.circular(12),
       ),
@@ -342,8 +360,8 @@ class _ResultScreenState extends State<ResultScreen> {
               size: 20,
               color: isEnabled
                   ? (isActive
-                      ? Theme.of(context).colorScheme.onPrimaryContainer
-                      : Theme.of(context).colorScheme.onSurface)
+                        ? Theme.of(context).colorScheme.onPrimaryContainer
+                        : Theme.of(context).colorScheme.onSurface)
                   : Colors.grey,
             ),
           ),
@@ -373,9 +391,9 @@ class _ResultScreenState extends State<ResultScreen> {
               const SizedBox(width: 8),
               Text(
                 title,
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.w600,
-                    ),
+                style: Theme.of(
+                  context,
+                ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
               ),
             ],
           ),
@@ -384,9 +402,9 @@ class _ResultScreenState extends State<ResultScreen> {
         Text(
           content,
           style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                height: 1.5,
-                color: Theme.of(context).colorScheme.onSurfaceVariant,
-              ),
+            height: 1.5,
+            color: Theme.of(context).colorScheme.onSurfaceVariant,
+          ),
         ),
       ],
     );
@@ -414,9 +432,9 @@ class _ResultScreenState extends State<ResultScreen> {
               const SizedBox(width: 8),
               Text(
                 title,
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.w600,
-                    ),
+                style: Theme.of(
+                  context,
+                ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
               ),
             ],
           ),
@@ -453,9 +471,9 @@ class _ResultScreenState extends State<ResultScreen> {
                   child: Text(
                     item,
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                          height: 1.4,
-                          color: Theme.of(context).colorScheme.onSurfaceVariant,
-                        ),
+                      height: 1.4,
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    ),
                   ),
                 ),
               ],

@@ -51,23 +51,25 @@ class HistoryProvider extends ChangeNotifier {
       await _historySubscription?.cancel();
 
       // Subscribe to Firestore updates
-      _historySubscription = _firestoreService.getUserScans(user.uid).listen(
-        (scans) {
-          _historyList = scans;
-          _isLoading = false;
-          notifyListeners();
+      _historySubscription = _firestoreService
+          .getUserScans(user.uid)
+          .listen(
+            (scans) {
+              _historyList = scans;
+              _isLoading = false;
+              notifyListeners();
 
-          // Cache to ObjectBox for offline access
-          _cacheScansToLocal(scans);
-        },
-        onError: (error) async {
-          print('Error loading from Firestore, using local cache: $error');
-          // Fallback to ObjectBox cache
-          _historyList = await _database.getAllHistory();
-          _isLoading = false;
-          notifyListeners();
-        },
-      );
+              // Cache to ObjectBox for offline access
+              _cacheScansToLocal(scans);
+            },
+            onError: (error) async {
+              print('Error loading from Firestore, using local cache: $error');
+              // Fallback to ObjectBox cache
+              _historyList = await _database.getAllHistory();
+              _isLoading = false;
+              notifyListeners();
+            },
+          );
     } catch (e) {
       print('Error loading history: $e');
       // Fallback to ObjectBox cache
@@ -169,11 +171,14 @@ class HistoryProvider extends ChangeNotifier {
     if (searchTerm.isEmpty) return _historyList;
 
     return _historyList
-        .where((scan) =>
-            scan.name.toLowerCase().contains(searchTerm.toLowerCase()) ||
-            scan.origin.toLowerCase().contains(searchTerm.toLowerCase()) ||
-            scan.tags.any((tag) =>
-                tag.toLowerCase().contains(searchTerm.toLowerCase())))
+        .where(
+          (scan) =>
+              scan.name.toLowerCase().contains(searchTerm.toLowerCase()) ||
+              scan.origin.toLowerCase().contains(searchTerm.toLowerCase()) ||
+              scan.tags.any(
+                (tag) => tag.toLowerCase().contains(searchTerm.toLowerCase()),
+              ),
+        )
         .toList();
   }
 

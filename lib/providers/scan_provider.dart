@@ -197,7 +197,9 @@ Jika makanan, berikan informasi singkat dan padat:
 
       // Save to Firestore and cache locally after stream completes
       final result = _result;
-      if (result != null && result.name.toLowerCase() != "bukan makanan" && result.isFood) {
+      if (result != null &&
+          result.name.toLowerCase() != "bukan makanan" &&
+          result.isFood) {
         _loadingMessage = "Menyimpan hasil...";
         notifyListeners();
 

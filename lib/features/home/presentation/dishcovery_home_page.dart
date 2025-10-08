@@ -96,7 +96,9 @@ class _DishcoveryHomePageState extends State<DishcoveryHomePage> {
               width: 40,
               height: 4,
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.onSurfaceVariant.withAlpha(77),
+                color: Theme.of(
+                  context,
+                ).colorScheme.onSurfaceVariant.withAlpha(77),
                 borderRadius: BorderRadius.circular(2),
               ),
             ),
@@ -266,7 +268,8 @@ class _DishcoveryHomePageState extends State<DishcoveryHomePage> {
                         );
                       }
                     },
-                    childCount: provider.feeds.length +
+                    childCount:
+                        provider.feeds.length +
                         (provider.hasMore || provider.isLoading ? 1 : 1),
                   ),
                 );

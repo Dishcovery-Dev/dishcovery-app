@@ -107,7 +107,6 @@ class CameraProvider extends ChangeNotifier {
       _isInitialized = true;
       _isLoading = false;
       notifyListeners();
-
     } catch (e) {
       print('Error initializing camera: $e');
 
@@ -166,7 +165,6 @@ class CameraProvider extends ChangeNotifier {
 
       _isFlashOn = !_isFlashOn;
       notifyListeners();
-
     } catch (e) {
       print('Error toggling flash: $e');
     }
@@ -200,7 +198,6 @@ class CameraProvider extends ChangeNotifier {
       notifyListeners();
 
       return picture;
-
     } catch (e) {
       print('Error taking picture: $e');
 
@@ -233,7 +230,6 @@ class CameraProvider extends ChangeNotifier {
       notifyListeners();
 
       return image;
-
     } catch (e) {
       print('Error picking image: $e');
 

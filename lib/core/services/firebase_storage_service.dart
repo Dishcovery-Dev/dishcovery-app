@@ -45,7 +45,11 @@ class FirebaseStorageService {
   }
 
   // Upload image from bytes (for camera captures)
-  Future<String?> uploadImageBytes(List<int> imageBytes, {String? folder, String? extension = '.jpg'}) async {
+  Future<String?> uploadImageBytes(
+    List<int> imageBytes, {
+    String? folder,
+    String? extension = '.jpg',
+  }) async {
     try {
       final user = _auth.currentUser;
       if (user == null) return null;
