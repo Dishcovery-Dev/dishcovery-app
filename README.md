@@ -1,12 +1,8 @@
 # 🍽️ DISHCOVERY App
 
-[![Codemagic build status](https://api.codemagic.io/apps/YOUR_APP_ID/YOUR_WORKFLOW_ID/status_badge.svg)](https://codemagic.io/apps/YOUR_APP_ID/YOUR_WORKFLOW_ID/latest_build)
-
-A Flutter application for discovering and exploring Indonesian culinary treasures using AI-powered recognition.
-
 -----
 
-## � About The App
+## 📝 About The App
 
 Dishcovery is a mobile application that helps users discover and learn about Indonesian cuisine through advanced AI image recognition. Built for the BEKUP 2025 Capstone Project, this app makes exploring Indonesian culinary delights easier and more engaging.
 
@@ -176,6 +172,9 @@ If you encounter any issues or have questions:
 2. Create a new issue
 3. Contact the development team
 
+For questions or feedback, please contact us at:  
+- Email: [contact.dishcovery@gmail.com](mailto:contact.dishcovery@gmail.com)  
+
 -----
 
 ## 🙏 Acknowledgments
@@ -239,6 +238,7 @@ lib/
 │
 └─ settings/
 └─ settings_page.dart # UI halaman pengaturan
+
 
 
 
