@@ -172,8 +172,7 @@ If you encounter any issues or have questions:
 2. Create a new issue
 3. Contact the development team
 
-For questions or feedback, please contact us at:  
-- Email: [contact.dishcovery@gmail.com](mailto:contact.dishcovery@gmail.com)  
+For questions or feedback, you can also contact us via email at [contact.dishcovery@gmail.com](mailto:contact.dishcovery@gmail.com).
 
 -----
 
